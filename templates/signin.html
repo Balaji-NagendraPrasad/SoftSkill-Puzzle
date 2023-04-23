@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 75px 350px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        .container{
+            background-color: rgb(250, 246, 246);
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+        
+        input[type="email"],
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }  
+
+        input[type="text"],
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }  
+        input[type="password"],
+        select,
+        textarea{
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }
+        
+
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+        form{display: inline;}
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Player Login</h1>
+    <div class="container">
+        <form action="/skillhunt", method="post"> {% csrf_token %}
+            <p>Email : </p>
+            <input type=email name="email" placeholder="Enter Email ID" required>
+            <p>User Name :</p>
+                <input type=text name="username" placeholder="Enter your Name" required>
+            <p>Password :</p>
+                <input type=password name="password" placeholder="Enter Password" required>
+            <input type="submit" value="Next">
+        </form>
+        <script>
+            if ('{{set}}' == 1){
+                alert('{{alert}}')
+            }
+        </script>
+        </div>
+</body>
+
+</html>

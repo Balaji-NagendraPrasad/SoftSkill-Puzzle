@@ -1,0 +1,85 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 75px 150px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        .container{
+            color: whitesmoke;
+            background-color:rgb(17, 20, 20);
+            padding: 5px 20px 15px 20px;
+            border: 2px solid goldenrod;
+            border-radius: 0px 0px 5px 5px;
+        }        
+        img{
+            float: right;
+            margin: auto;
+        }        
+        .main_heading{
+            color: black;
+            text-align: center;
+            background-color:greenyellow;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid goldenrod;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Skill Hunter</h1>
+    <div class="container">
+        <form action="/s1", method="post"> {% csrf_token %}  
+            <img src="{% static 'suryatreasury.jpg' %}" alt="Image not found" width="250px" height="200px">
+            <h1 style="color: yellowgreen;">Search for Treasure!!!</h1>
+            <p>Once upon a time, there was a family who had a secret map that leads to a valuable treasure. The map box had been passed down through the generations, but no one had ever been able to decipher its clues.</p>
+            <p>Raj belongs to the same family.</p>
+            <p>Help Raj to find the hidden treasury.</p>
+            <h4 style="color: yellowgreen;">Here are the Rules of the Game</h4>
+            <p>In order to help Raj,you are supposed to solve the puzzles</p>
+            <p>Every puzzle is alloted with certain amount of points which sums to 100 points</p>
+            <p style="color: red;">You totally have 4 lives ❤❤❤❤</p>
+            <p>On every wrong guess you will lose a life 💔</p>
+            <p>Their are few dead-ends in the puzzle if you reach them you will lose a life 💔 along with that you will lose extra 5 points</p>
+            <br>
+            <center>
+            <input type="submit" value="Play Now" ></center>
+        </form>
+        <script type="text/javascript">
+            function preback(){window.history.forward();}
+            setTimeout(preback(),0);
+            window.onunload=function(){null};
+        </script>
+    </div>
+</body>
+
+</html>

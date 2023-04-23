@@ -1,0 +1,114 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 15px 150px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        form{display: inline;}
+
+        .container{
+            background-color: black;
+            color: white;
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+        input[type="number"],
+        select,
+        textarea{
+            width: 40%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }  
+        .life {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Skill Hunter</h1>
+    <div class="container">
+        <form action="/s3", method="post"> {% csrf_token %}
+            <img style="float: right;" src="{% static 'map.jpeg' %}" alt="Image not found" width="250px" height="200px">
+        <h3 style="color: yellowgreen;">Yeah..!!! It was right!!</h3>
+        <p>The maps says there are 5 steps to reach treasure!!</p>
+        <h3 style="color: yellowgreen;">Direction</h3>
+        <p>The map gives a clue about the Direction.</p>
+        <h4 style="color: yellowgreen;">Find the Direction</h4>
+        <p style="color: yellowgreen;">Solve the puzzle to find the Direction.</p>
+        <p>Ram drove 10 km towards North and then 5 km towards west by his car then he turned to the south and covered 3 km. Further he
+             turned to east and moved 6 km finally he turned right and moved 7 km. How far and in which direction is he from his starting point?</p>
+        <p>Direction:</p>
+        <input type="radio" name= "direction" value="North" required>North
+            <br><br>
+                <input type="radio" name= "direction" value="South">South
+            <br><br>
+                <input type="radio" name= "direction" value="East">East
+            <br><br>
+                <input type="radio" name= "direction" value="West">West
+        <p>Distance:
+        <input type=number name="km" placeholder="Enter distance in kilometers" required>
+        <input type="submit" value="Next" ></p>
+        </form>
+        <div class = 'life'>
+            <h3>Remaining lives  = {{ life }}</h3>
+        </div>
+        <script type="text/javascript">
+            function preback(){window.history.forward();}
+            setTimeout(preback(),0);
+            window.onunload=function(){null};
+        </script>
+        <script>
+            if ('{{flag}}' == 1){
+                alert('{{response}}')
+            }
+        </script>
+        </div>
+</body>
+</html>

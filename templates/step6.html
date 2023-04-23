@@ -1,0 +1,101 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 15px 150px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        form{display: inline;}
+
+        .container{
+            background-color: black;
+            color: white;
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+        .life {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Skill Hunter</h1>
+    <div class="container">
+        <form action="/s7", method="post"> {% csrf_token %}
+        <img style="float: right;" src="{% static 'treasureybox.jpg' %}" alt="Image not found" width="300px" height="200px"></p>
+        <h3 style="color: greenyellow;">Hooray....!!!</h3>
+        <h3 >You found the Treasure Box</h3>
+        <h4>To open the treasure box you need a code.</h4>
+        <h4>Solve the puzzle to know the code.</h4>
+        <p>If ROSE is coded as 6821, CHAIR is coded as 73456 and PREACH is coded as 961473, what will be the code for SEARCH ?</p>
+        <input type="radio" name= "num" value="246173" required>246173
+            <br><br>
+                <input type="radio" name= "num" value="214673">214673
+            <br><br>
+                <input type="radio" name= "num" value="214763">214763
+            <br><br>
+                <input type="radio" name= "num" value="216473">216473
+        <center>
+        <input type="submit" value="Next" >
+        </center>
+        </form>
+        <div class = 'life'>
+            <h3>Remaining lives  = {{ life }}</h3>
+        </div>
+        <script>
+            if ('{{flag}}' == 1){
+                alert('{{response}}')
+            }
+        </script>
+        <script type="text/javascript">
+            function preback(){window.history.forward();}
+            setTimeout(preback(),0);
+            window.onunload=function(){null};
+        </script>
+        </div>
+</body>
+</html>

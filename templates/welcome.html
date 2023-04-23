@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 75px 300px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        .container{
+            background-color:white;
+            padding: 20px 20px 20px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+            height: 350px;
+        }
+                
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">SKILL HUNTER</h1>
+    <div class="container">
+    <div style="text-align: right;">
+        <form action="/Admin1",method='post'>
+            <a href = "admin">Admin</a>
+        </form>
+    </div>
+        <form action="/userlogin", method="post"> {% csrf_token %}
+            <img src="{% static 'skillhunt.jpg' %}" alt="Image not found" width="300px" height="300px" style="float:left;">
+            <br><br><br><br><br>
+            <div style="text-align: center;">
+                <input type="submit" value="Play Now"><br>  
+        </form>
+        <br>
+    </div>
+    </div>
+</body>
+
+</html>

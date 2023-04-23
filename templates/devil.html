@@ -1,0 +1,80 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 75px 350px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        form{display: inline;}
+
+        .container{
+            background-color: black;
+            color: white;
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Skill Hunter</h1>
+    <div class="container">
+        <form action="/s5", method="post"> {% csrf_token %}
+        <h3 style="color: red;">Oh No......!!!!!</h3>
+        <h4>You Reached the wrong room</h4>
+        <h4 style="color: red;">It's Devil's Room</h4>
+        <h4>You lost a life and also you lost extra 5 points</h4>
+        <img src="{% static 'devil.jpg' %}" alt="Image not found"></p>
+        <center>
+        <input type="submit" value="Back" ></center>
+        </form>
+        <script type="text/javascript">
+            function preback(){window.history.forward();}
+            setTimeout(preback(),0);
+            window.onunload=function(){null};
+        </script>
+        </div>
+</body>
+</html>

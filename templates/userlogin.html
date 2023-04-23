@@ -1,0 +1,105 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 75px 350px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        .container{
+            background-color: rgb(250, 246, 246);
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+        
+        input[type="text"],
+        select,
+        textarea{
+            width: 40%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }  
+        input[type="password"],
+        select,
+        textarea{
+            width: 40%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }
+        
+
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+        form{display: inline;}
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Player Login</h1>
+    <div class="container">
+        <form action="/skillhunt", method="post"> {% csrf_token %}
+            <img src="{% static 'login.png' %}" alt="Image not found" width="200px" height="200px" style="float:left;">
+            <br>
+            <p>User Name :</p>
+                <input type=text name="username" placeholder="Enter username" required>
+            <p>Password :</p>
+                <input type=password name="password" placeholder="Enter password" required>
+            <br>
+            <input type="submit" value="Login" style="float: right;" >
+        </form>
+        <br>
+        <form action="/signin",method="post">{% csrf_token %}
+            <p>New Player
+            <a href="signin">Sign in</a></p>
+        </form>
+        <script>
+            if ('{{flag}}' == 1){
+                alert('{{response}}')
+            }
+        </script>
+        </div>
+</body>
+
+</html>

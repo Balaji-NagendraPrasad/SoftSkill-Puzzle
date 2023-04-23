@@ -1,0 +1,110 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 15px 150px;
+            font-size: 17px;
+            padding: 8px;
+        }
+        
+        form{display: inline;}
+
+        .container{
+            background-color: black;
+            color: white;
+            padding: 5px 20px 15px 20px;
+            border: 2px solid black;
+            border-radius: 0px 0px 5px 5px;
+        }
+
+        fieldset{
+            background-color: #fff;
+            border: 1px solid #ccc;
+        }
+        
+        .main_heading{
+            text-align: center;
+            background-color:aquamarine;
+            padding: 25px;
+            margin: 0px;
+            border-radius: 5px 5px 0px 0px;
+            border:2px solid black;
+            width: 100%;
+        }
+        
+        input[type="submit"]{
+            background-color:rgb(36, 255, 36);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px ;
+            cursor: pointer;
+            width: 20%;
+            
+        }
+        input[type="submit"]:hover{
+            background-color: rgb(86, 230, 46);
+        }
+        input[type="text"],
+        select,
+        textarea{
+            width: 40%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            margin: 10px;
+        }  
+        .life {
+            text-align: center;
+            margin: auto;
+        }
+    </style>
+    <title>SoftSkill Puzzle</title>
+</head>
+
+<body>
+    <h1 class="main_heading">Skill Hunter</h1>
+    <div class="container">
+        <form action="/s5", method="post"> {% csrf_token %}
+            <img style="float: right;" src="{% static 'cavetreasure.jpg' %}" alt="Image not found" width="200px" height="200px">
+            <h3 style="color: yellowgreen;">Great....!!! you cleared 2nd step</h3>
+            <h4 style="color: yellowgreen;">Select the Location</h4>
+            <p>Now Raj is sure that Treasury is in the Forest.</p>
+            <p>But where to search for the treasure in such a huge Forest???</p>
+            <p>Maps says that Treasury is in one of the following locations!!!.</p>
+            <img style="float: right;" src="{% static 'rivertreasure.jpg' %}" alt="Image not found" width="200px" height="200px">
+            <p style="color: red;">Make a wise decision so that you would not reach a dead-end.</p>
+            <input type="radio" name= "location" value="Cave">Cave
+            <p>The treasure might be in the cave...!!, Because their are several stories that relates to the treasury stored in a secret cave.</p>
+            <p>And also their is a saying that the treasure is guarded by snakes that would allow only Raj's family members. </p>
+            <br>
+            <input type="radio" name= "location" value="River">River
+            <img style="float: right;" src="{% static 'treasurehouse.jpeg' %}" alt="Image not found" width="200px" height="200px">
+            <p>The treasure might be in the River...!!, Because their is a talk that Raj's ancestors kept the treasure in the river bank to safe guard the treasure from theives.</p>
+            <br>
+            <input type="radio" name= "location" value="House">House
+            <p>The treasure might be in the House...!!, Because their is a gossip that ancestors of Raj are guarding the treasure in the haunted house
+            and whoever went to the haunted house to steal the treasure have never returned.</p>
+            <center>
+            <p> <input type="submit" value="Next" ></p></center>
+        </form>
+        <script type="text/javascript">
+            function preback(){window.history.forward();}
+            setTimeout(preback(),0);
+            window.onunload=function(){null};
+        </script>
+        <div class = 'life'>
+            <h3>Remaining lives  = {{ life }}</h3>
+        </div>
+    </div>
+</body>
+</html>
