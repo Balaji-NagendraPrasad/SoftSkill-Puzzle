@@ -37,7 +37,7 @@ def adminoptions(request):
     global set
     admin=request.POST.get('username','default')
     password=request.POST.get('password','default')
-    if (admin != "Balaji" or password != 'balaji16') and flag==0:
+    if (admin != "Admin123@gmail.com" or password != 'Admin16@') and flag==0:
         set=1
         R ={'set':set,'alert':"Invalid userid password"}
         return render(request,'Admin1.html',R)
