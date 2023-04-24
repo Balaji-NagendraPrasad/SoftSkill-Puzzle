@@ -63,7 +63,7 @@ once you are done install mysql workbench and start a new connection then run th
          email varchar(50),
          password varchar(20),
          primary key(user_id)); 
- step4 : insert into user_info values('10000','balaji','balaji@gmail.com','ufdsjfkncCX');
+ step4 : insert into user_info values('10000','xyz','xyz@gmail.com','ufdsjfkncCX');
  step5 : create table scores(
          score_id int not null,
          user_id int,
@@ -78,7 +78,7 @@ once you are done install mysql workbench and start a new connection then run th
          final_score int,
          primary key(score_id),
          constraint fk5 foreign key(user_id) references user_info(user_id) on delete cascade);
- step6 : insert into scores values(1,10000,0,0,0,0,0,0,0,49,0); 
+ step6 : insert into scores values(1,10000,0,0,0,0,0,0,0,0,0); 
  
  
 Now open command prompt and make the migrations using following commands.
@@ -101,7 +101,11 @@ Now open command prompt and make the migrations using following commands.
 
  
  
- 
- 
- 
-         
+Features implemented :
+Anyone with an email address can create an Id and password to participate in the game.
+The puzzle contains 6 clues,2 dead-ends,only 1 solution
+user score and time taken is stored in database.
+You cannot go back to the previous step if you press the browser back button website retains to the same page.
+Dashboard for the user where you can track the user data and analyze it.
+User analysis like time taken, points gained acan be analysed in admin dash board.
+User Leader board is also available to get user analysis.
